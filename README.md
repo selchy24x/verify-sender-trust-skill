@@ -1,5 +1,7 @@
 # verify-sender-trust
 
+![verify-sender-trust eyecatch](assets/verify-sender-trust-eyecatch.jpg)
+
 `verify-sender-trust` は、チラシ、広告、メール、ダイレクトメール、SMS、SNS 広告、案内状、寄付依頼、求人、イベント告知などについて、送り主や関係団体が信頼できるかを確認するための Agent Skill です。
 
 基本的な方針としては、コンテンツから信頼性チェックに活用できるヒントを抽出し、web調査で
@@ -76,5 +78,7 @@ Use $verify-sender-trust to investigate whether this donation request from a non
 
 ## 注意点
 このSkillは簡易的な調査をAIに行わせる目的で作成されたものです。
+
 高いリスクを伴う判断には使わない方が良いと思います。
+
 調査結果は、各利用者の責任において活用してください。
