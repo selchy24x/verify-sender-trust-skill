@@ -2,9 +2,18 @@
 
 `verify-sender-trust` は、チラシ、広告、メール、ダイレクトメール、SMS、SNS 広告、案内状、寄付依頼、求人、イベント告知などについて、送り主や関係団体が信頼できるかを確認するための Agent Skill です。
 
-この Skill は、案内の見た目や送り主の自己申告だけで判断せず、案内内の手がかりを公式情報・公的情報・一次情報へ接続していくことを重視します。
+基本的な方針としては、コンテンツから信頼性チェックに活用できるヒントを抽出し、web調査で
 
-特に、次の 2 つを分けて扱います。
+- 公式情報・公的情報・信頼できる一次情報での言及
+- ドメインの信頼性
+
+などをチェックします。
+
+つまり、調査対象の団体/個人から伸びた「信頼の鎖」が信用の置ける団体やソースまで繋がっていて、かつその案内・送信元・リンク・支払い先・依頼行動まで確認できればOK、という考え方です。
+
+その他にも信頼性チェックのために有用と思われるweb調査を行います。
+
+次の2つは分けて扱います。
 
 - その団体が実在し、信頼できそうか
 - その案内、送信元、リンク、支払い先、担当者、依頼行動が本当にその団体と結びついているか
@@ -41,49 +50,15 @@
 
 ### npx skills
 
-Agent Skills CLI を使う場合:
-
 ```bash
 npx skills add selchy24x/verify-sender-trust-skill --skill verify-sender-trust
 ```
 
-Claude Code にユーザースコープで入れる例:
-
-```bash
-npx skills add selchy24x/verify-sender-trust-skill --skill verify-sender-trust --agent claude-code --global
-```
-
-Codex にユーザースコープで入れる例:
-
-```bash
-npx skills add selchy24x/verify-sender-trust-skill --skill verify-sender-trust --agent codex --global
-```
-
 ### GitHub CLI
-
-`gh skill` に対応した GitHub CLI を使う場合:
 
 ```bash
 gh skill install selchy24x/verify-sender-trust-skill verify-sender-trust
 ```
-
-Claude Code にユーザースコープで入れる例:
-
-```bash
-gh skill install selchy24x/verify-sender-trust-skill verify-sender-trust --agent claude-code --scope user
-```
-
-Codex にユーザースコープで入れる例:
-
-```bash
-gh skill install selchy24x/verify-sender-trust-skill verify-sender-trust --agent codex --scope user
-```
-
-`gh skills` は、対応している GitHub CLI では `gh skill` の別名として利用できます。
-
-その他の Agent AI ツールでの導入方法は、各ツールの Agent Skills 対応方法に従ってください。
-
-インストール後、新しい Skill が自動認識されない場合は、利用中の Agent AI ツールを再起動してください。
 
 ## 利用例
 
@@ -99,8 +74,7 @@ Use $verify-sender-trust to verify whether this flyer for a city-sponsored semin
 Use $verify-sender-trust to investigate whether this donation request from a nonprofit-looking organization is trustworthy.
 ```
 
-## 注意
-
-この Skill は調査手順を改善するためのものです。安全性を保証するものではありません。
-
-医療、法律、金融、税金、移民、雇用、行政給付などの高リスク領域では、案内内の連絡先ではなく、公式サイトや公的機関から独立して確認した連絡経路で必ず確認してください。
+## 注意点
+このSkillは簡易的な調査をAIに行わせる目的で作成されたものです。
+高いリスクを伴う判断には使わない方が良いと思います。
+調査結果は、各利用者の責任において活用してください。
